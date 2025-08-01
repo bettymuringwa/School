@@ -2,10 +2,11 @@ body{
   margin: 0;
   background-color: #f0f3f5;
 }
-li{
+nav{
   float:right;
+  text-align: center;
 }
-li a {
+nav a {
   display: block;
   padding: 20px;
   text-decoration: none;
