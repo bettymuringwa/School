@@ -2,8 +2,17 @@ body{
   margin: 0;
   background-color: #f0f3f5;
 }
+
+navline {
+    border: none;         
+    height: 2px;   
+    width: 60%;
+    margin: 20px auto;    /* Center the line and add vertical space */
+    background-color:#0e1030;
+}
+
 nav{
-  float:right;
+  float:right; /*push nav to right side*/
   text-align: center;
 }
 nav a {
