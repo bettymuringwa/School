@@ -7,9 +7,9 @@ nav{
   text-align: center;
 }
 nav a {
-  display: block;
   padding: 20px;
-  text-decoration: none;
-  color:black;
-  text-align: center;
+    margin: 0 15px; /* Spacing between links */
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
 }
