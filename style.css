@@ -6,7 +6,7 @@ body{
 navline {
     border: none;         
     height: 2px;   
-    width: 60%;
+    width: 100%;
     margin: 20px auto;    /* Center the line and add vertical space */
     background-color:#0e1030;
 }
