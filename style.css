@@ -1,0 +1,14 @@
+body{
+  margin: 0;
+  background-color: #f0f3f5;
+}
+li{
+  float:right;
+}
+li a {
+  display: block;
+  padding: 20px;
+  text-decoration: none;
+  color:black;
+  text-align: center;
+}
