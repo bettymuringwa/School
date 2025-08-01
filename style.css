@@ -22,3 +22,8 @@ nav a {
     text-decoration: none;
     color: #000;
 }
+
+nav a:hover, /* Hover effect on text color */
+nav a.active { /* Active link text color */
+    color:#71b4f0; /* Color for the active link */
+}
