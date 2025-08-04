@@ -7,7 +7,7 @@ navline {
     border: none;         
     height: 2px;   
     width: 100%;
-    margin: 20px auto;    /* Center the line and add vertical space */
+  /*  margin: 20px auto;     Center the line and add vertical space */
     background-color:#0e1030;
 }
 
