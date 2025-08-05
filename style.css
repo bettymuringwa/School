@@ -25,5 +25,24 @@ nav a {
 
 nav a:hover, /* Hover effect on text color */
 nav a.active { /* Active link text color */
-    color:#71b4f0; /* Color for the active link */
+    color:#093A6B; /* Color for the active link */
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #093A6B;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
