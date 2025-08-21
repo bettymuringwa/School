@@ -2,8 +2,11 @@
 <html>
 <head> 
 <title>Home<\title>
+<script src="script.js"></script>
+ <link rel="stylesheet" href="style.css">
 <\head>
 <body> 
-
+  <!-- Nav bar-->
+  <div id="navbar"></div>
 <\body>
 <\html>
