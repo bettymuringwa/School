@@ -1,20 +1,54 @@
 body{
   margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height:100%;
   background-color: #ffffff;
 }
 
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px); /* start slightly lower */
+  transition: opacity 2s ease-out, transform 2s ease-out;  /* how long the animation lasts */
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/*end of fade-in animation*/
+
+/* Navigation Bar starts */
 nav{
-display: flex;
-  justify-content: space-evenly; /* spreads items out */
+  display: flex;
+  position:fixed; /* makes it stay at the top */
+justify-content: flex-start; /* aligns items to the left */
   align-items: center;
-  padding: 0 20px;
-  margin: 5px 5px 5px 5px;
-  background-color: #2a76b4;
-  border-radius: 20px;
+  height: 65px;
+  width:100%;
+   background-color: rgba(11, 44, 93, 0.5); /* transparent navy */
+  transition: background-color 0.3s ease;  /* smooth transition */
+  /*padding: 0 20px;*/
+  /*margin: 5px 5px 5px 5px;*/
+/*  background-color:#0b2c5d;*/
+  z-index: 1000;     /* Ensures it stays above other elements */
+  /*border-radius: 20px;*/
+}
+/* Darker navbar after scroll */
+nav.scrolled {
+  background-color: rgba(11, 44, 93, 0.95); /* darker & less transparent */
+}
+/*#2a76b4*/
+.nav-links{
+   display: flex;
+  align-items: center;
+  gap: 20px;  /* space between links */
+  margin-left: 160px; /* pushes links away from logo280 */
 }
 
 nav a {
-  padding: 15px;
+  padding:15px 15px 20px 15px; /* padding: top right bottom left */
     margin: 10px 8px; /* Spacing between links */
     display: inline-block;
     text-decoration: none;
@@ -23,15 +57,28 @@ nav a {
 
 nav a:hover, /* Hover effect on text color */
 nav a.active { /* Active link text color */
-    background-color:#63adf8; /* Color for the active link */
+    background-color: rgb(244, 204, 4); /* Color for the active link */
     border-radius: 20px;
+}
+
+.dropdown{
+  position: relative;
+  display: inline-block; /* makes it line up like other links */
+}
+
+.dropdown > span {
+  padding: 15px;
+  margin: 10px 8px;
+  display: inline-block;
+  color: #ffffff;
+  cursor: pointer; /* makes it feel clickable */
 }
 
 .dropdown-content {
   display: none;
   position:absolute;
   min-width: auto;
-  background-color: #2a76b4;
+  background-color: #032e52;
   border-radius: 20px;
   padding: 3px 3px;
   z-index: 1;
@@ -41,3 +88,354 @@ nav a.active { /* Active link text color */
 .dropdown:hover .dropdown-content {
   display:block ;
 }
+
+.logo{
+   display: flex;
+  height: 40px;
+  width: 150px;
+  border-radius: 5%;
+  margin-right: 20px;
+} 
+/* Navigation Bar ends */
+
+/*Footer begins here - 3 column layout*/
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+footer{
+  text-align: center;
+  padding: 10px;
+  background-color:#0b2c5d;
+  color: white;
+  margin-top: 20px;
+  font-size:14px;
+}
+.map-container {
+  max-width:100%;    /* takes full width of its column */
+  border-radius: 10px;
+  overflow: hidden;   /* keeps rounded edges on iframe */
+}
+
+.map-container iframe {
+  width: 100%;        /* make the map responsive */
+  height: 150px;
+  border: 0;
+}
+
+@media (max-width: 768px) {
+  .column {
+    width: 100%; /* Stacks columns on smaller screens */
+    margin-bottom: 20px; /* Adds space between stacked columns */
+  }
+}
+
+/* Style all font awesome icons */
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+  padding-right: 22px;
+}
+
+/* Instagram */
+.fa-instagram {
+  background: #f01a1a;
+  color: white;
+}
+
+.footer-logo {
+height: 80%; /* adjust size */ 
+width: 30%; 
+border-radius: 20px; /* optional, for rounded corners */
+margin-top:50px; /* space between logo and text: top right bottom left*/ 
+}
+
+.pfoot{
+  font-weight: bold;
+  font-size: 18px;
+  margin: 10px 0 5px 0; /* space between logo and text: top right bottom left*/
+}
+/*Footer ends here*/
+
+/*Slideshow banner starts here*/
+.banner {
+  position: relative;
+  width: 100%; 
+  max-height: 500px;
+  overflow: hidden;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;       /* vertical center */
+  left: 50%;      /* horizontal center */
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width:80%;
+  color: rgb(244, 204, 4);
+  font-size: 2em;
+  text-shadow: 2px 2px 5px black;
+   opacity: 0;
+  animation: slideIn 3s forwards; /* 1.5 seconds animation */
+}
+/* Keyframes for sliding in from left */
+@keyframes slideIn {
+  to {
+    transform: translate(-50%, -50%) translateX(0); /* final center position */
+    opacity: 1;
+  }
+} 
+/*banner ends here*/
+
+/* Welcome box style */
+.welcome-box {
+  background-color: #0b2c5d; /* Dark blue */
+  color: white;
+padding: 40px;
+/*  margin: 20px auto;*/
+  text-align: center;
+  font-size: 1.2em;
+  max-width: 100%px; /* keeps it neat in the center */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* subtle shadow */
+}
+
+.welcome-box p {
+  margin: 0;
+  line-height: 2;
+   text-align: justify; 
+}
+.welcome-box h1 {
+  color:white;
+font: 2em; }
+
+.welcome-box hr{
+  width:30%;
+  color:rgb(244, 204, 4);
+  border: 2px solid;
+  margin-bottom: 20px;
+}
+/* End of welcome box style */
+
+/*main container starts here*/
+main{
+  padding: 0 10px 0 10px; /* padding: top right bottom left */
+  max-width: 100%; /* limits width on large screens */
+  margin: auto; /* centers the content */
+  height:100%;
+}
+/*main container ends here*/
+
+/* start of main content two columns */
+.intro {
+  display: flex;
+  align-items: center;        /* vertically center image & text */
+  gap: 20px;                  /* space between image and text */
+  margin: 30px 0;             /* spacing around the section */
+}
+
+.intro-column {
+  flex: 1;                    /* make both columns equal width */
+  padding: 0 20px;
+}
+
+.intro-column img {
+  width: 100%;
+  height: auto;
+  border-radius: 40px;
+}
+
+.intro-column p {
+  text-align: justify;        /* equal left & right edges */
+  font-size: 17px;
+  line-height: 1.6;
+  color: black;
+}
+.intro-column h2 {
+  text-align: justify;        /* equal left & right edges */
+  font-size: 30px;
+  color: #0b2c5d;
+}
+
+.intro-column hr {
+  width:100%;
+  color:rgb(244, 204, 4);
+  border: 2px solid;
+}
+.intro-reverse {
+  flex-direction: row-reverse;
+  margin: 0 0 20px 0;
+}
+/*end of main content 2 columns*/
+.main-h2 hr{
+  width:30%;
+  color:rgb(244, 204, 4);
+  border: 2px solid;
+}
+
+.main-h2{
+  text-align: center;
+  color: #0b2c5d;
+  font-size: 1.5em;
+  margin-top: 40px;
+}
+/*Counter starts here*/
+/*.counters {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 50px 0;
+  background-color: #032e52;
+  padding: 40px 20px;
+  border-radius: 15px;
+}*/
+.counters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 60px 20px;
+  /* background image */
+/*  background: url("images/ig5.jpg") no-repeat center center/cover;*/
+overflow: hidden; /* ensure blur doesn't overflow */
+  /* overlay */
+  position: relative;
+  color: white;
+}
+
+.counters::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  /* dark overlay */
+  
+  width: 100%;
+  height: 100%;
+  background: url("images/ig5.jpg") no-repeat center center/cover;
+  filter: blur(2.5px);
+  z-index: 0;
+  background: linear-gradient(rgba(11, 10, 50, 0.5), rgba(11, 10, 50, 0.5)),
+              url("images/ig5.jpg") no-repeat center center/cover;
+}
+/* Ensure text/content is above the blurred background */
+.counters > * {
+  position: relative;
+  z-index: 1;
+}
+
+.counter-box {
+  text-align: center;
+  font-size: 1.2em;
+  color: white;
+   position: relative;
+  z-index: 2;
+  text-align: center;
+  height:130px;
+  padding-top:20px;
+}
+
+.counter-box h2 {
+  font-size: 3em;
+  margin: 0;
+  color: rgb(244, 204, 4); /* gold-like color */
+}
+
+.counter-box p {
+  margin: 10px 0 0;
+  font-size: 1.2em;
+}
+/* end of statistics countear */
+
+/*enroll button style */
+.enroll {
+  background-color: rgb(244, 204, 4); /* gold-like color */
+  color: #0b2c5d; /* dark blue text */
+  border: 2px solid #0b2c5d;
+  padding: 10px 20px;
+  font-size: 0.9em;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+/*end of enroll button style */
+
+/*logo slider starts here*/
+.logo-slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background: white;
+  padding: 20px 0;
+}
+
+.logo-slide-track {
+  display: flex;
+  width: calc(250px * 10); /* width = image width × number of images */
+  animation: scroll 20s linear infinite;
+}
+
+.logo-slide-track img {
+  width: 250px;    /* adjust size */
+  height: auto;
+  margin: 0 20px;  /* spacing */
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* shift half (since we duplicated logos) */
+}
+/*end of logo slider*/
+
+/* Back to Top Button */
+#backToTop {
+  position: fixed;       /* Always visible */
+  bottom: 30px;          /* Distance from bottom */
+  right: 30px;           /* Distance from right */
+  z-index: 1000;         /* On top of other content */
+  background-color: #0b2c5d; /* Button color */
+  color: white;          /* Text color */
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  display: none;         /* Hidden by default */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+#backToTop:hover {
+  background-color: #333;
+}
+/* End of Back to Top Button */
+
+
+

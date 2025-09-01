@@ -9,3 +9,127 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(error => console.error("Error loading navbar:", error));
 });
+
+// Load the footer.html into the #footer div
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer").innerHTML = data;
+    })
+    .catch(error => console.error("Error loading footer:", error));
+});
+
+//Load for banner 
+var i = 0;
+var path = [];
+path[0] = "images/science.jpg";
+path[1] = "images/boarding.jpg";
+path[2] = "images/results.png";
+path[3] = "images/culture.jpg";
+path[4] = "images/sports1.jpg";
+
+function swapImage() {
+    document.slide.src = path[i];
+    i = (i + 1) % path.length; // loops back to 0
+}
+
+// change image every 3 seconds
+window.onload = function() {
+    setInterval(swapImage, 2500);
+};
+//end of banner code
+
+/*start of counter code with fade-in integration*/
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".counter");
+  let countersStarted = false; // to prevent multiple triggers
+
+  function startCounters() {
+    if (countersStarted) return; // already started
+    countersStarted = true;
+
+    counters.forEach(counter => {
+      counter.innerText = "0";
+       const showPlus = counter.getAttribute("data-plus") === "true";
+
+      const updateCounter = () => {
+        const target = +counter.getAttribute("data-target");
+        const current = +counter.innerText;
+        const increment = target / 100; // number of increment for each step till you reach target number e.g 600/50=12 steps
+
+        if (current < target) {
+          counter.innerText = `${Math.ceil(current + increment)}`;
+          setTimeout(updateCounter, 80); // delay between increments
+        } else {
+          counter.innerText = showPlus ? `${target}+` : `${target}`; // stop exact  ly at target
+        }
+      };
+
+      updateCounter();
+    });
+  }
+
+  // Observe when the counters section enters view
+  const counterSection = document.querySelector(".counters");
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        startCounters();
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counterObserver.observe(counterSection);
+});
+/*end of counter code*/
+
+
+// Fade-in on scroll
+const faders = document.querySelectorAll('.fade-in');
+
+const appearOptions = {
+  threshold: 0.2
+};
+
+const appearOnScroll = new IntersectionObserver(function(entries, observer){
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, appearOptions);
+
+faders.forEach(fader => {
+  appearOnScroll.observe(fader);
+});
+// End of fade-in on scroll
+
+// Get the button
+const backToTopButton = document.getElementById("backToTop");
+
+// Show the button when user scrolls down 100px
+window.onscroll = function() {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    backToTopButton.style.display = "block";
+  } else {
+    backToTopButton.style.display = "none";
+  }
+};
+
+// Scroll to top when button is clicked
+backToTopButton.addEventListener("click", function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+// End of back to top button code
+
+// Change navbar style on scroll
+window.addEventListener("scroll", function() {
+  const navbar = document.querySelector("nav");
+  if (window.scrollY > 50) {   // when scrolled down 50px
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
+});
