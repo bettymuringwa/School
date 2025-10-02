@@ -23,11 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
 //Load for banner 
 var i = 0;
 var path = [];
-path[0] = "images/science.jpg";
-path[1] = "images/boarding.jpg";
-path[2] = "images/results.png";
-path[3] = "images/culture.jpg";
-path[4] = "images/sports1.jpg";
+path[0] = "images/ig5.jpg";
+path[1] = "images/science.jpg";
+path[2] = "images/culture.jpg";
+path[3] = "images/sports1.jpg";
+path[4] = "images/boarding.jpg";
 
 function swapImage() {
     document.slide.src = path[i];
@@ -36,7 +36,7 @@ function swapImage() {
 
 // change image every 3 seconds
 window.onload = function() {
-    setInterval(swapImage, 2500);
+    setInterval(swapImage, 2000);
 };
 //end of banner code
 
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (current < target) {
           counter.innerText = `${Math.ceil(current + increment)}`;
-          setTimeout(updateCounter, 80); // delay between increments
+          setTimeout(updateCounter, 30); // delay between increments
         } else {
           counter.innerText = showPlus ? `${target}+` : `${target}`; // stop exact  ly at target
         }
@@ -133,3 +133,15 @@ window.addEventListener("scroll", function() {
     navbar.classList.remove("scrolled");
   }
 });
+//end of navbar scroll code
+
+//admissions
+// accordion
+const toggle = document.getElementById('feesToggle');
+const panel = document.getElementById('feesPanel');
+toggle.addEventListener('click', ()=>{
+toggle.classList.toggle('active');
+panel.classList.toggle('open');
+});
+//end of admissions
+

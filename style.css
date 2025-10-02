@@ -1,9 +1,10 @@
 body{
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: open-sans, sans-serif;
   height:100%;
-  background-color: #ffffff;
+  background-color: #f2f2f2;
+  color: #0b2c5d;  /* dark navy blue for all text */
 }
 
 /* Fade-in animation */
@@ -29,11 +30,7 @@ justify-content: flex-start; /* aligns items to the left */
   width:100%;
    background-color: rgba(11, 44, 93, 0.5); /* transparent navy */
   transition: background-color 0.3s ease;  /* smooth transition */
-  /*padding: 0 20px;*/
-  /*margin: 5px 5px 5px 5px;*/
-/*  background-color:#0b2c5d;*/
   z-index: 1000;     /* Ensures it stays above other elements */
-  /*border-radius: 20px;*/
 }
 /* Darker navbar after scroll */
 nav.scrolled {
@@ -43,7 +40,7 @@ nav.scrolled {
 .nav-links{
    display: flex;
   align-items: center;
-  gap: 20px;  /* space between links */
+  gap: 10px;  /* space between links */
   margin-left: 160px; /* pushes links away from logo280 */
 }
 
@@ -52,13 +49,17 @@ nav a {
     margin: 10px 8px; /* Spacing between links */
     display: inline-block;
     text-decoration: none;
-      color: #ffffff
+      color: #ffffff;
+       font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 nav a:hover, /* Hover effect on text color */
 nav a.active { /* Active link text color */
-    background-color: rgb(244, 204, 4); /* Color for the active link */
-    border-radius: 20px;
+   background-color: #032e52; /* Same dark blue as dropdown */
+  border: 2px solid gold;    /* Gold border effect */
+  border-radius: 20px;    /* Rounded corners */ 
+  color: #ffffff;            /* Keep text white */
 }
 
 .dropdown{
@@ -72,21 +73,52 @@ nav a.active { /* Active link text color */
   display: inline-block;
   color: #ffffff;
   cursor: pointer; /* makes it feel clickable */
+    font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .dropdown-content {
   display: none;
-  position:absolute;
-  min-width: auto;
+  position: absolute;
+  min-width: 200px;
   background-color: #032e52;
-  border-radius: 20px;
-  padding: 3px 3px;
+  border-radius: 10px;
+  padding: 0.5rem 0;
   z-index: 1;
-  color: #ffffff
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 0.95rem;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
 .dropdown:hover .dropdown-content {
   display:block ;
+}
+
+.dropdown-content a:hover {
+  background: rgba(255, 255, 255, 0.1); /* faded hover */
+  color: rgb(244, 204, 4); /* gold text */
+}
+
+/* Underline animation */
+.dropdown-content a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 6px;
+  width: 0;
+  height: 2px;
+  background: rgb(244, 204, 4); /* gold underline */
+  transition: width 0.3s ease;
+}
+.dropdown-content a:hover::after {
+  width: 100%;
 }
 
 .logo{
@@ -216,6 +248,12 @@ margin-top:50px; /* space between logo and text: top right bottom left*/
 } 
 /*banner ends here*/
 
+.banner2 img{
+  width: 100%;
+  display: block;
+  height:500px;
+}
+
 /* Welcome box style */
 .welcome-box {
   background-color: #0b2c5d; /* Dark blue */
@@ -223,7 +261,7 @@ margin-top:50px; /* space between logo and text: top right bottom left*/
 padding: 40px;
 /*  margin: 20px auto;*/
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.1em;
   max-width: 100%px; /* keeps it neat in the center */
   box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* subtle shadow */
 }
@@ -235,7 +273,7 @@ padding: 40px;
 }
 .welcome-box h1 {
   color:white;
-font: 2em; }
+font: 25px; }
 
 .welcome-box hr{
   width:30%;
@@ -277,11 +315,10 @@ main{
   text-align: justify;        /* equal left & right edges */
   font-size: 17px;
   line-height: 1.6;
-  color: black;
 }
 .intro-column h2 {
   text-align: justify;        /* equal left & right edges */
-  font-size: 30px;
+  font-size: 25px;
   color: #0b2c5d;
 }
 
@@ -304,9 +341,10 @@ main{
 .main-h2{
   text-align: center;
   color: #0b2c5d;
-  font-size: 1.5em;
+  font-size: 25px;
   margin-top: 40px;
 }
+
 /*Counter starts here*/
 /*.counters {
   display: flex;
@@ -363,7 +401,7 @@ overflow: hidden; /* ensure blur doesn't overflow */
 }
 
 .counter-box h2 {
-  font-size: 3em;
+  font-size: 50px;
   margin: 0;
   color: rgb(244, 204, 4); /* gold-like color */
 }
@@ -437,5 +475,219 @@ overflow: hidden; /* ensure blur doesn't overflow */
 }
 /* End of Back to Top Button */
 
+/*Banner-Two*/
+
+/*End of Banner-Two*/
+
+/*About section*/
+.aboutContent {
+  position: relative;
+  z-index: 1;
+padding: 0 0 40px 0;
+  color: white;
+}
+
+/*end of about */
+
+/* Start of scroll heading with arrow */
+.scroll-heading {
+  text-align: center;
+  color: #f5f6f8; /* dark blue tone */
+  position: relative;
+  display: inline-block;
+}
+
+.arrow {
+  display: inline-block;
+  margin-left: 10px; /* spacing from text */
+  width: 12px;
+  height: 12px;
+  border-left: 3px solid #f6f9fc; 
+  border-bottom: 3px solid #f9f9fa;
+  transform: rotate(-45deg);
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: rotate(-45deg) translateY(0);
+  }
+  40% {
+    transform: rotate(-45deg) translateY(5px);
+  }
+  60% {
+    transform: rotate(-45deg) translateY(3px);
+  }
+}
+/* End of scroll heading with arrow */
+
+.contact-overlay {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  color: #f4b400;
+  font-size: 1.2rem;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 300px;
+}
+
+.contact-wrapper {
+  display: flex;
+  justify-content: center; /* centers inside main */
+  padding: 200px 20px;
+}
+
+.contact-container {
+  display: flex;
+  gap: 40px;
+  max-width: 1000px; /* keeps it neat */
+  width: 100%;
+}
+
+.contact-left {
+  flex: 1;
+  color: #fff;
+  background: #0b2c5d; /* navy blue */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.contact-left i {
+  margin-right: 8px;
+  color: #f4b400; /* golden yellow */
+}
+
+.contact-right {
+  flex: 1;
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.contact-right h2 {
+  margin-bottom: 15px;
+  color: #0b2c5d;
+}
+
+.contact-right form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-right input,
+.contact-right textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.contact-right button {
+  background: #0b2c5d;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.contact-right button:hover {
+  background: #094080;
+}
+
+/* Make responsive for smaller screens */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+}
+/* End of contact form style */
+
+/* Clear floats after the columns */
+.column-trio {
+  float: left;
+  width: 33.33%;
+  margin-top:50px;
+}
+
+/* Clear floats after the columns */
+.row-trio:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.para{
+  width:90%;
+  font-size:1em;
+  line-height: 2;
+}
+/*end of 3 column layout*/
+
+/* Core Values Section */
+.core-values {
+  text-align: center;
+  margin: 0;
+}
+
+.core-values h2 {
+  color: #f9fbfc; /* dark navy blue */
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+.values-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap; /* responsive for smaller screens */
+}
+
+.value-circle {
+  background-color: #15085d; /* gold */
+  color: #ffffff; /* white text */
+  font-weight: bold;
+  font-size: 1.2em;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #d4af37; /* gold border */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+}
+/*end of core values section*/
+
+/* begin admissions */
+header{
+  display:flex;
+  align-items:center; 
+  gap:16px;
+ margin:50px 0 20px 0;}
+header h1{font-size:20px; margin:0; padding-left:50px;}
+.card{background:var(--card); border-radius:12px; box-shadow:0 6px 18px rgba(10,10,20,0.06); padding:50px; margin-bottom:16px;}
+.card h2{margin:0 0 10px 0; font-size:18px;}
+p.lead{color:var(--muted); margin:0 0 12px 0;}
 
 
+ol{margin:8px 0 16px 20px}
+ul{margin:8px 0 16px 20px}
+.muted{color:var(--muted); font-size:14px}
+
+/* simple accordion for fees placeholder */
+.accordion{cursor:pointer; padding:12px; border-radius:8px; background:#fff; border:1px solid #eee}
+.accordion:after{content:'+'; float:right}
+.accordion.active:after{content:'–'}
+.panel{max-height:0; overflow:hidden; transition:max-height .25s ease}
+.panel.open{max-height:800px; padding-top:12px}
+
+/* end of admissions */
