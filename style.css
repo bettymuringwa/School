@@ -136,6 +136,10 @@ nav a.active { /* Active link text color */
   width: 33.33%;
 }
 
+.column hr{
+  color:rgb(244, 204, 4);
+}
+
 /* Clear floats after the columns */
 .row:after {
   content: "";
@@ -302,7 +306,7 @@ main{
 
 .intro-column {
   flex: 1;                    /* make both columns equal width */
-  padding: 0 20px;
+ /* padding: 0 40px;*/
 }
 
 .intro-column img {
@@ -313,8 +317,9 @@ main{
 
 .intro-column p {
   text-align: justify;        /* equal left & right edges */
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.6;
+  width:90%;
 }
 .intro-column h2 {
   text-align: justify;        /* equal left & right edges */
@@ -323,7 +328,6 @@ main{
 }
 
 .intro-column hr {
-  width:100%;
   color:rgb(244, 204, 4);
   border: 2px solid;
 }
@@ -674,7 +678,7 @@ header{
   gap:16px;
  margin:50px 0 20px 0;}
 header h1{font-size:20px; margin:0; padding-left:50px;}
-.card{background:var(--card); border-radius:12px; box-shadow:0 6px 18px rgba(10,10,20,0.06); padding:50px; margin-bottom:16px;}
+.card{background:var(--card); border-radius:12px; box-shadow:0 6px 18px rgba(10,10,20,0.06); padding:50px; margin-bottom:16px; width:80%;}
 .card h2{margin:0 0 10px 0; font-size:18px;}
 p.lead{color:var(--muted); margin:0 0 12px 0;}
 
@@ -691,3 +695,57 @@ ul{margin:8px 0 16px 20px}
 .panel.open{max-height:800px; padding-top:12px}
 
 /* end of admissions */
+
+/*gallery*/
+ .gallery-section {
+      text-align: center;
+      padding: 60px 20px;
+      background-color: #f9f9f9;
+    }
+
+    .gallery-title {
+      font-size: 2em;
+      margin-bottom: 40px;
+      color: #0b2c5d; /* dark blue */
+    }
+
+    .gallery-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap; /* makes it responsive */
+    }
+
+    .gallery-card {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      border-radius: 15px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-card img {
+      width: 90%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .gallery-card:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(11, 44, 93, 0.8); /* dark blue overlay */
+      color: #f4cc04; /* gold text */
+      text-align: center;
+      padding: 15px;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+    /*end gallery*/
