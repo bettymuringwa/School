@@ -137,11 +137,65 @@ window.addEventListener("scroll", function() {
 
 //admissions
 // accordion
-const toggle = document.getElementById('feesToggle');
-const panel = document.getElementById('feesPanel');
-toggle.addEventListener('click', ()=>{
-toggle.classList.toggle('active');
-panel.classList.toggle('open');
+document.querySelectorAll(".accordion").forEach((accordion) => {
+  accordion.addEventListener("click", function () {
+    this.classList.toggle("active");
+    const panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
 });
 //end of admissions
 
+// Load the nav.html into the #navbar div
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("nav.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("navbar").innerHTML = data;
+
+      // Once navbar is loaded, highlight the current page
+      const links = document.querySelectorAll('#navbar a'); // select links inside navbar
+      const currentPage = window.location.pathname.split('/').pop(); // get current page file name
+
+      links.forEach(link => {
+        if(link.getAttribute('href') === currentPage) {
+          link.classList.add('active');
+        }
+      });
+    })
+    .catch(error => console.error("Error loading navbar:", error));
+});
+//end of nav highlight code
+
+// Load the nav.html into the #navbar div
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("nav.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("navbar").innerHTML = data;
+
+      const links = document.querySelectorAll('#navbar a'); // all links inside navbar
+      const currentPage = window.location.pathname.split('/').pop(); // current file
+
+      links.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+          link.classList.add('active');
+
+          // Check if link is inside a dropdown
+          const dropdown = link.closest('.dropdown'); 
+          if (dropdown) {
+            const span = dropdown.querySelector('span');
+            if (span) {
+              span.classList.add('active'); // highlight parent span
+            }
+          }
+        }
+      });
+    })
+    .catch(error => console.error("Error loading navbar:", error));
+});
+//end of nav highlight code
