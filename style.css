@@ -148,6 +148,7 @@ nav a.active { /* Active link text color */
 }
 footer{
   text-align: center;
+  width:100%;
   padding: 10px;
   background-color:#0b2c5d;
   color: white;
