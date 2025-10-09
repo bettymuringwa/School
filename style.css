@@ -134,7 +134,7 @@ nav a.active span.active { /* Active link text color */
 footer{
   text-align: center;
   width:100%;
-  /*padding: 10px; */
+  padding-bottom: 10px; 
   background-color:#0b2c5d;
   color: white;
   margin-top: 20px;
@@ -239,9 +239,11 @@ margin-top:50px; /* space between logo and text: top right bottom left*/
 /*banner ends here*/
 
 .banner2 img{
-  width: 100%;
-  display: block;
-  height:500px;
+   display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%; /* optional — adjust size */
+  height:20%;
 }
 
 /* Welcome box style */
@@ -510,6 +512,7 @@ padding: 0 0 40px 0;
 }
 /* End of scroll heading with arrow */
 
+/*contacts start*/
 .contact-overlay {
   position: absolute;
   top: 20%;
@@ -524,7 +527,7 @@ padding: 0 0 40px 0;
 .contact-wrapper {
   display: flex;
   justify-content: center; /* centers inside main */
-  padding: 200px 20px;
+  padding: 20px 20px;
 }
 
 .contact-container {
@@ -713,9 +716,10 @@ ul{margin:8px 0 16px 20px}
     }
 
     .gallery-card img {
-      width: 90%;
+      width: 100%;
       height: 250px;
       object-fit: cover;
+      border-radius: 40px;
     }
 
     .gallery-card:hover {
@@ -735,3 +739,31 @@ ul{margin:8px 0 16px 20px}
       font-weight: bold;
     }
     /*end gallery*/
+
+    /*staff gallery*/
+div.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+div.gallery-item {
+  margin: 5px;
+  border: 1px solid #ccc;
+  width: 180px;
+}
+
+div.gallery-item:hover {
+  border: 1px solid #777;
+}
+
+div.gallery-item img {
+  width: 100%;
+  height: auto;
+}
+
+div.gallery-item div.desc {
+  padding: 15px;
+  text-align: center;
+}
+    /*end of staff gallery*/
